@@ -1,6 +1,8 @@
 package com.scaler.Splitwise.model;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.ManyToOne;
 import lombok.Data;
 
@@ -15,4 +17,6 @@ public class Expense extends BaseModel {
     private HashMap<Users, Double> hasToPayUsers;
     @ManyToOne
     private Group group;
+    @Enumerated(EnumType.ORDINAL)
+    private Currency currency;
 }
