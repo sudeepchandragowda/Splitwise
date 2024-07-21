@@ -5,13 +5,12 @@ import jakarta.persistence.ManyToMany;
 import jakarta.persistence.OneToMany;
 import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.util.List;
-import java.util.Scanner;
-
 @Data
-@Entity(name = "SPLITWISE_USER")
 @Builder
+@Entity(name = "SPLITWISE_USER")
 public class Users extends BaseModel {
     private String name;
     private String email;
