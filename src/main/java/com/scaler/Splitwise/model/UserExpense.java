@@ -8,9 +8,12 @@ import lombok.Data;
 public class UserExpense extends BaseModel{
     @ManyToOne
     private Users user;
-    @ManyToOne
-    private Expense expense;
     private double amount;
     @Enumerated(EnumType.ORDINAL)
     private UserExpenseType userExpenseType;
 }
+/*
+    @ManyToOne
+    private Expense expense;
+    Removed as it is not necessary here
+ */
