@@ -16,7 +16,7 @@ public class SettleUpController {
     @Autowired
     private InitService initService;
 
-    @GetMapping("/init") // GET call -> localhost:8080/hello
+    @GetMapping("/init") // GET call -> localhost:8080/init
     public ResponseEntity initialise() {
         initService.initialise();
         return ResponseEntity.ok("DONE");
