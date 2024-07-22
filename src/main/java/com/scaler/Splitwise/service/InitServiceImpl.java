@@ -1,5 +1,6 @@
 package com.scaler.Splitwise.service;
 
+import com.scaler.Splitwise.model.Group;
 import com.scaler.Splitwise.model.Users;
 import com.scaler.Splitwise.repository.ExpenseRepository;
 import com.scaler.Splitwise.repository.GroupRepository;
@@ -7,6 +8,8 @@ import com.scaler.Splitwise.repository.UserExpenseRepository;
 import com.scaler.Splitwise.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public class InitServiceImpl implements InitService{
@@ -41,9 +44,16 @@ public class InitServiceImpl implements InitService{
                 .name("Veena Charan")
                 .build();
 
-        userRepository.save(rahul);
-        userRepository.save(omkar);
-        userRepository.save(deepak);
-        userRepository.save(veena);
+        rahul = userRepository.save(rahul);
+        omkar = userRepository.save(omkar);
+        deepak = userRepository.save(deepak);
+        veena = userRepository.save(veena);
+
+        Group group = new Group();
+        group.setDescription("Friends who never pay back on time");
+        group.setName("Trip to Goa");
+        group.setUsers(List.of(rahul, omkar, deepak, veena));
+
+        groupRepository.save(group);
     }
 }
